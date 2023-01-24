@@ -1,0 +1,4 @@
+clc
+clear
+a = GUI;
+disp(a.drink_array)
