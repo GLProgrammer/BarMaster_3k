@@ -9,6 +9,8 @@ board = "Mega2560";
 
 homePath = pwd;
 
-bm = BarMaster(connectionPort, board, "Servo1", "Stepper1", homePath + "\resources\Drinks.db", homePath + "\logs", ["NoArduino"]);
+bm = BarMaster(connectionPort, board, "Servo1", "Stepper1", "D44", homePath + "\resources\Drinks.db", homePath + "\logs", [""]);
+[bm, Drinks] = bm.DBGetResources();
 bm = bm.ConnectStepper(1,200);
-bm = bm.ConnectServo(1);
+bm = bm.HomeBarBot(20);
+% bm = bm.ConnectServo(1);
