@@ -1,4 +1,0 @@
-clc
-clear all
-f = figure("Name", "Barmaster_3000" ...
-    "Position", "")
