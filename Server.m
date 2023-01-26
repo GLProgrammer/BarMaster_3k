@@ -5,6 +5,7 @@ addpath UI\
 %% Creating serial connection to BarMaster and waiting for its connection
 status = "";
 connectionArduino = serialport("COM3", 115200);
+connectionArduino.Timeout = 30;
 
 configureTerminator(connectionArduino, "CR/LF");
 flush(connectionArduino);
@@ -133,7 +134,9 @@ end
 %% Function for moving BarMaster to its coresponding locations
 function MoveToPosition(conn, position)
     conn.write("M" + position, "string");
+%     pause(3);
     done = false;
+    data = "";
     while(~done)
         data = conn.readline();
         data = char(data);
