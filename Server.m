@@ -95,9 +95,12 @@ function MixDrinkRoulette(conn)
 
     Home(conn);
     for i=1:length(positions)
+        disp(positions(i));
         MoveToPosition(conn, positions(i));
         pause(1);
+        disp("Pouring");
         Pour(conn);
+        disp("Done Pouring");
         pause(1);
     end
 
@@ -107,7 +110,9 @@ end
 function positions = roulette()
     locations = ["A", "B", "C", "D", "E", "F"];
     nums = randi([1 6], 3, 1);
+    disp(nums);
     positions = locations(nums);
+    disp(positions);
 end
 
 %% Function for homing BarMaster
